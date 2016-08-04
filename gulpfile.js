@@ -17,7 +17,7 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter(stylish)) //better styling for linter warnings
 });
 
-//runs lint on js including tests, then concats and minifies js
+//runs lint on js including tests, then concats and minifies to dist
 gulp.task('scripts', ['lint'], function() {
   return gulp
     .src([
