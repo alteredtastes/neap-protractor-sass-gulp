@@ -6,7 +6,19 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     gulpAngularProtractor = require('gulp-angular-protractor');
 
-gulp.task('scripts', function() {
+//runs linter on all js and tests
+gulp.task('lint', function() {
+  return gulp
+    .src([
+      'public/javascripts/**/*.spec.js',
+      'public/javascripts/*.spec.js',
+    ])
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish)) //better styling for linter warnings
+});
+
+//runs lint on js including tests, then concats and minifies js
+gulp.task('scripts', ['lint'], function() {
   return gulp
     .src([
       'public/javascripts/*.js', //get angular-app
@@ -15,14 +27,13 @@ gulp.task('scripts', function() {
       '!public/javascripts/*.spec.js', //avoid angular-app protractor test file
       '!public/javascripts/dist/*.js', //ignore previous dist file
     ])
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish)) //better styling for linter warnings
     .pipe(concat('all.min.js'))
     .pipe(ngAnnotate({add: true}))
     .pipe(uglify({mangle: true}))
     .pipe(gulp.dest('public/javascripts/dist'));
 });
 
+//runs protractor test
 gulp.task('test', ['scripts'], function(callback) {
   return gulp
     .src(['../public/javascripts/**/*.spec.js'])
