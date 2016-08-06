@@ -46,3 +46,11 @@ gulp.task('test', ['scripts'], function(callback) {
       throw e
     })
 })
+
+gulp.task('watch', function() {
+  gulp.watch([
+    'public/javascripts/*.{js,html}',
+    'public/javascripts/*/*.{js,html}',
+    '!public/javascripts/dist/*.js'
+  ],['scripts']);
+}) //reruns scripts automatically on changes to these file types
