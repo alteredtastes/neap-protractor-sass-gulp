@@ -2,9 +2,9 @@ $title: red;
 $brand: blue;
 
 .first {
-  color: $brand;
+  color: $title;
 }
 
 .second {
-  color: $title;
+  color: $brand;
 }

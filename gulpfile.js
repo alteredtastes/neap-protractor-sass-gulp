@@ -32,7 +32,9 @@ var paths = {
   ]
 }
 
-//compiles scss, runs lint on js & tests, then concats & minifies to dist
+//compiles scss
+//runs lint on js & test files
+//concats & minifies to dist
 gulp.task('scripts', ['style', 'lint'], function() {
   return gulp
   .src(paths.scripts)
@@ -42,7 +44,7 @@ gulp.task('scripts', ['style', 'lint'], function() {
   .pipe(gulp.dest('./public/javascripts/dist'));
 });
 
-//compile scss to css
+//compiles style.scss to style.css
 gulp.task('style', function() {
   return gulp
     .src('./public/stylesheets/sass/*.scss')
@@ -50,7 +52,7 @@ gulp.task('style', function() {
     .pipe(gulp.dest('./public/stylesheets/css/'));
 });
 
-//runs linter on all js and tests
+//runs linter on js & test files
 gulp.task('lint', function() {
   return gulp
     .src(paths.lint)
@@ -72,4 +74,4 @@ gulp.task('test', ['scripts'], function(callback) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.watch, ['scripts']);
-}); //reruns scripts automatically on changes to these file types
+}); //reruns scripts automatically on changes to path.watch files
