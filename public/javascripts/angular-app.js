@@ -11,7 +11,7 @@
     $stateProvider
       .state('main', {
         url: '/',
-        templateUrl: 'partials/main.html',
+        templateUrl: 'javascripts/main/main.html',
         controllerAs: 'main',
         controller: 'MainController',
       });

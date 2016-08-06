@@ -4,16 +4,10 @@
 // chai.use(chaiAsPromised);
 // var expect = chai.expect;
 
-describe('Protractor Demo App', function() {
-  it('should add one and two', function() {
-    browser.get('http://juliemr.github.io/protractor-demo/');
-
-    element(by.model('first')).sendKeys(1);
-    element(by.model('second')).sendKeys(2);
-
-    element(by.id('gobutton')).click();
-
-    expect(element(by.binding('latest')).getText()).
-      toEqual('3');
+describe('Main page', function() {
+  it('should say this text', function() {
+    browser.get('http://localhost:3000/');
+    expect(element(by.binding('main.text')).getText()).
+      toEqual('this is some text from the main controller');
   });
 });
