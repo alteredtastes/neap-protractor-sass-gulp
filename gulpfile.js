@@ -25,6 +25,7 @@ var paths = {
   ],
   test: '../public/javascripts/**/*.spec.js',
   watch: [
+    'public/*.html',
     'public/javascripts/*.{js,html}',
     'public/javascripts/**/*.{js,html}',
     'public/stylesheets/sass/**/*.scss',
@@ -72,6 +73,6 @@ gulp.task('test', ['scripts'], function(callback) {
     .on('error', function(e) {throw e;})
 });
 
-gulp.task('watch', function() {
+gulp.task('default', function() {
   gulp.watch(paths.watch, ['scripts']);
 }); //reruns scripts automatically on changes to path.watch files
