@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('neap-protractor-sass-gulp:server');
+var debug = require('debug')('neap-stack:server');
 var http = require('http');
 
 /**

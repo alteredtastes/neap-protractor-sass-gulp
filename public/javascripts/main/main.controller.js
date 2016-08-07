@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('neap-protractor-sass-gulp')
+    .module('neap-stack')
     .controller('MainController', MainController);
 
   function MainController() {

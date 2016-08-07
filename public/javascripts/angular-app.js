@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('neap-protractor-sass-gulp', ['ui.router'])
+    .module('neap-stack', ['ui.router'])
     .config(config);
 
   /* @ngInject */
